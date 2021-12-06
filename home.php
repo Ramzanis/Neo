@@ -1,11 +1,14 @@
 <?php  
  //entry.php  
  session_start();  
- if(!isset($_SESSION["username"]))  
+
+ //If no user is logged in, then redirect to index.php 
+ if(!isset($_SESSION['brukernavn']))  
  {  
-      header("location:home.php?action=login");  
+      header("location:index.php");  
  }  
 ?>
+<<<<<<< Updated upstream
 <!DOCTYPE html><html>
 <!-- Mirrored from www.studentstutorial.com/demo/?cat_id=1 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Oct 2021 15:38:51 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
@@ -66,4 +69,37 @@ h1 {text-align: center;}
   <p align="center">Neo Ungdomsklubb 2021<b style="color: GREEN;"></p>
 </footer>
 
+=======
+<html>
+	<head>
+		<link rel="stylesheet" href="css/style.css">
+		<title>Neo Ungdomssklubb</title>
+	</head>
+	
+	<body>		
+		<header id="header">
+			<div id="logo">
+				<h1><img src="images\neoshadow.png" width="120" height="65"><a href="logout.php">Logg ut</a></h1>
+			</div>
+		</header>
+				
+		<main>
+
+			<div class="innertube">
+				
+				<h1>Velkommen <?php echo $_SESSION['brukernavn'];	?></h1>
+				
+			</div>
+		</main>
+
+		<nav id="nav">
+			<div class="innertube">
+				<h1>Funksjoner</h1>
+				<ul>
+					<?php include './inc/navlink.php'; ?>
+				</ul>
+			</div>
+		</nav>	
+	</body>
+>>>>>>> Stashed changes
 </html>
