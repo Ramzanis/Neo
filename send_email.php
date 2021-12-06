@@ -3,7 +3,7 @@
 
 if(isset($_POST['email_data']))
 {
- require 'C:\xampp\htdocs\school\test\inc\PHPMailerAutoload.php';
+ require 'inc\PHPMailerAutoload.php';
  $output = '';
  foreach($_POST['email_data'] as $row)
  {
