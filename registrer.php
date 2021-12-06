@@ -1,4 +1,5 @@
 <?php  
+ //entry.php  
  session_start();  
  if(!isset($_SESSION["username"]))  
  {  
@@ -22,7 +23,7 @@
 		<main>
 			<div class="innertube">
 				
-				<h1>Velkommen</h1>
+				<h1>Registrering av ny medlem</h1>
 				
 			</div>
 		</main>
