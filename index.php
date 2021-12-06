@@ -23,7 +23,7 @@
                 $_SESSION['username'] = $username;  
                 header("location:home.php");  
            }  
-           else  
+           else  dsfds
            {  
                 echo '<script>alert("Feil brukernavn eller passord, vennligst prøv igjen")</script>';  
            }  
