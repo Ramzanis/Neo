@@ -22,6 +22,11 @@
                      <input type="submit" name="login" value="Logg inn" class="btn btn-info" />  
                      <br />   
                 </form>
+<<<<<<< Updated upstream
            </div>  
+=======
+           </div>   
+           <div></div>
+>>>>>>> Stashed changes
       </body>  
  </html>
