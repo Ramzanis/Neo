@@ -8,6 +8,10 @@
 ?>
 <html>
 	<head>
+<<<<<<< HEAD
+=======
+        <link rel="icon" href="images\icon.png">  
+>>>>>>> ramzan1
 		<link rel="stylesheet" href="css/style.css">
 		<title>Send e-post</title>
 	</head>
@@ -16,7 +20,11 @@
 
 		<header id="header">
 			<div id="logo">
+<<<<<<< HEAD
 				<h1><img src="images\neoshadow.png" width="120" height="65"><a href="logout.php">Logg ut</a></h1>
+=======
+				<h1><img src="images\neoshadow.png" width="120" height="65"><a style="float:right" href="logout.php">Logg ut</a></h1>
+>>>>>>> ramzan1
 			</div>
 		</header>
 				
@@ -41,9 +49,36 @@
                 <body>
                 <br />
                 <div class="container">
+<<<<<<< HEAD
                 <h3 align="center">Send e-post</h3>
                 <br />
                 <div class="table-responsive">
+=======
+                <h3 align="center">Send e-mail</h3>
+                <br />
+                <div class="table-responsive">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-4 mt-5 bg-light rounded">
+                                <hr class="bg-light">
+                                <form action="" method="post" id="form-box" class="p-2">
+                                    <div class="form-group input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        </div>
+                                        <input type="text" name="subject" class="form-control" placeholder="Subject">
+                                    </div>
+                                    <div class="form-group input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-comment-alt"></i></span>
+                                        </div>
+                                        <textarea id="text" name="content" class="form-control" placeholder="Content" cols="30" rows="4" required></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+>>>>>>> ramzan1
                     <table class="table table-bordered table-striped">
                     <tr>
                     <th>Fornavn</th>
@@ -63,7 +98,11 @@
                     <td>'.$row["etternavn"].'</td>
                     <td>'.$row["email"].'</td>
                     <td>
+<<<<<<< HEAD
                         <input type="checkbox" name="single_select" class="single_select" data-email="'.$row["email"].'" data-name="'.$row["fornavn"].'" />
+=======
+                        <input type="checkbox" name="single_select" class="single_select" data-email="'.$row["email"].'" data-name="'.$row["fornavn"].'"/>
+>>>>>>> ramzan1
                     </td>
                     <td><button type="button" name="email_button" class="btn btn-info btn-xs email_button" id="'.$count.'" data-email="'.$row["email"].'" data-name="'.$row["fornavn"].'" data-action="single">Send Single</button></td>
                     </tr>
@@ -91,6 +130,11 @@
                     {
                     email_data.push({
                         email: $(this).data("email"),
+<<<<<<< HEAD
+=======
+                        subject: $(this).data("subject"),
+                        content: $(this).data("content"),
+>>>>>>> ramzan1
                         name: $(this).data("fornavn")
                     });
                     }
@@ -100,8 +144,15 @@
                         if($(this). prop("checked") == true)
                         {
                         email_data.push({
+<<<<<<< HEAD
                         email: $(this).data("email"),
                         name: $(this).data('fornavn')
+=======
+                            email: $(this).data("email"),
+                            subject: $(this).data("subject"),
+                            content: $(this).data("content"),
+                            name: $(this).data('fornavn')
+>>>>>>> ramzan1
                         });
                         }
                     });
