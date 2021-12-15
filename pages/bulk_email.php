@@ -17,7 +17,7 @@
 
 		<header id="header">
 			<div id="logo">
-				<h1><img src="images\neoshadow.png" width="120" height="65"><a style="float:right" href="logout.php">Logg ut</a></h1>
+				<h1><a href="./home.php"><img src="images\neoshadow.png" width="120" height="65"></a><a style="float:right" href="logout.php">Logg ut</a></h1>
 			</div>
 		</header>
 				

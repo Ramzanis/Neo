@@ -15,7 +15,7 @@
           <h2 align="center"><img src="images\neoshadow.png" width="300" height="170"> <br>
           <br>Ungdomssklubb innloggingsportal</h2>  
           <br/>  
-                <form action="login.php" method="post">  
+                <form action="private/login.php" method="post">  
                     <label>Skriv brukernavn</label>  
                          <input type="text" name="bnavn" class="form-control" required/> 
                     <br/>  

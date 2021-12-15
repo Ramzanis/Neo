@@ -2,7 +2,7 @@
 session_start();
 
 //Connection to database
-include './private/db_connect.php';    
+include "db_connect.php";    
 
 //If login button has been clicked
 if(isset($_POST['login'])){
@@ -19,13 +19,13 @@ $user = $stmt->fetch();
     if ($user && password_verify($password, $user['passord']))   {   
         
         $_SESSION['brukernavn'] = $username;
-        header("location: home.php");
+        header("location: ../home.php");
         
     //If there is no user with this name or the password doesn't match, then... 
     } else {
     
         $_SESSION["error"] = '<span style="color:#FF0000;text-align:center"> Mislykket innlogging</span>';
-        header("location: index.php");
+        header("location: ./index.php");
     
     }
 

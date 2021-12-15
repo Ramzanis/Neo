@@ -1,18 +1,21 @@
-<?php  
+<?php 
+include "./private/db_connect.php"; 
  session_start();  
 
- if(!isset($_SESSION["brukernavn"]))  
- {  
-      header("location: index.php");  
- }  
+ if(isset($_SESSION["brukernavn"])) {
 
+ 	$test = $_SESSION['brukernavn'];
+
+ 	$where = " WHERE fornavn='$test'";
+
+     
 ?>
 <html>
 	<head>
 		<link rel="icon" href="images\icon.png">  
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<title>Neo Ungdomssklubb</title>
 	</head>
@@ -20,50 +23,58 @@
 
 		<header id="header">
 			<div id="logo">
-				<h1><img src="images\neoshadow.png" width="120" height="65"><a style="float:right" href="./classes/logout.php">Logg ut</a></h1>
+				<h1><a href="home.php"><img src="images\neoshadow.png" width="120" height="65"></a><a style="float:right" href="./classes/logout.php">Logg ut</a></h1>
 			</div>
 		</header>
-				
-		<main>
+
 			<div class="innertube">
-				<h1>Velkommen</h1>
+				<h1>Velkommen <?php echo $_SESSION["brukernavn"];?></h1>
 			</div>
-		</main>
 
-		<table border = "2">
-		<thead>
-        <tr>
-            <th>Aktivitet</th>
-            <th>Ansvarlig</th>
-            <th>Dato</th>
-            <th>Beskrivelse</th>
-      </thead>
+		<?php 
+		/* Getting the members from medlemmer table */ 
+		$smt = $conn->prepare('SELECT * FROM medlemmer');
+		$smt->execute();
+		$data = $smt->fetchAll();
 
-    <tbody>
-    	<select name="filter" id="filtrer_data">
-						<option value="" selected="" disabled=""> Filtrer </option>
-						<option value="old_record">Vis tidligere aktiviteter</option>
-						<option value="all_record">Vis alle</option>
+		?>
 
+		<select name="name_member" id="filter">
+			
+			<?php foreach ($data as $row) {  //Dropdown list off all the members 
+
+			echo "<option>" . $row['fornavn']. "</option>"; }
+		?>
 		</select>
 
-    <?php require_once './classes/fetch_process.php';
-					while($row = $result->fetch()): ?>
-    
-	
-    <tr>
-        <td><?php echo $row['aktivitet'] ?></td> 
-        <td><?php echo $row['ansvarlig'] ?></td> 
-        <td><?php echo $row['start_tid'] ?></td> 
-				<td><?php echo $row['beskrivelse']; ?></td>
-    </tr>
+	  	<div class="table">
 
-        <?php endwhile;?>
-    
-			</tbody>
+		</div>		
+		<script type="text/javascript">
 
-	</table>		
-		
+			//Checking if we are selecting any value from the dropdown list
+				$(document).ready(function(){
+					$("#filter").on('change', function(){
+						var value = $(this).val(); //value from the dropdown list is saved to this variable
+						console.log(value); //print the value to console, used for the debugging process 
+					
+						$.ajax({ // ajax where we specify the file we are using to handle the ajax and jquery 
+							url: "./classes/fetch.php", //File its submiting to 
+							type: "POST", 	
+							data: {'select' : value}, //'select' is actually the data we selected from the dropdown list 
+							beforeSend:function(){ //Before we send the request, we can echo span tag where it says "Arbeider.." before it updates the table
+								$(".table").html("<span>Arbeider...</span>");
+							},
+							success:function(response){ //If the request was successful, then update the table 
+								$(".table").html(response);
+								
+							}
+						});	
+					});
+				});
+
+		</script>
+
 
 		<nav id="nav">
 			<div class="innertube">
@@ -73,32 +84,8 @@
 				</ul>
 			</div>
 		</nav>	
-
-	<script type="text/javascript">
-
-							$(document).ready(function() {
-
-								$("#filtrer_data").on('change', function() {
-									var value = $(this).val();
-									// alert(value);	
-					
-							$.ajax({
-								url:"fetch.php",
-								type:"POST",
-								data:{'request ' : value},
-								beforeSend:function(){
-										$(".container").html("<span>Working</span>")
-								}, 
-								success:function(value){
-										$(".container").html(data);
-								}
-
-							});
-						});
-					});	
-
-	</script>
-
-
 	</body>
+<?php } else {header("location: index.php"); }?>
 </html>
+
+

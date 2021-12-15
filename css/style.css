@@ -44,6 +44,8 @@ main {
 
 .innertube {
   margin: 15px; /* Provides padding for the content */
+  text-align: center;
+  position: relative;
 }
 
 p {
@@ -70,3 +72,73 @@ nav ul a {
   height: 100%; 
   width: 100%; 
 }
+
+.table {
+
+  margin: 10% 15%;
+  padding: 10px;
+}
+
+#filter {
+  position: relative;
+  text-align: center;
+  padding: 10px;
+
+}
+
+.box{
+
+  width: 80%;
+  height: 200px;
+  margin: auto;
+  padding: 10px;
+
+
+}
+
+.akt-form{
+
+  width: 15%;
+  height: 200px;
+  float: left;
+
+}
+
+.table1 {
+
+  margin-left: 25%;
+  height: 200px;
+
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content base {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content base:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+li base, .dropbtn {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+}
+
+
+

@@ -14,16 +14,19 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<title>Neo Ungdomssklubb</title>
 	</head>
+	
 	<body>		
 		<header id="header">
 			<div id="logo">
-             <h1><img src="images\neoshadow.png" width="120" height="65"><a style="float:right" href="logout.php">Logg ut</a></h1>
+				<h1><a href="./home.php"><img src="images\neoshadow.png" width="120" height="65"></a><a style="float:right" href="logout.php">Logg ut</a></h1>
 			</div>
 		</header>
 				
 		<main>
 			<div class="innertube">
-				<h1>Oversikt/legg til ny aktivitet</h1>
+				
+				<h1>Endre medlemsdata</h1>
+				
 			</div>
 		</main>
 
